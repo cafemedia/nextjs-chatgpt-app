@@ -45,15 +45,6 @@ export default function Home() {
           xl: centerMode !== 'full' ? theme.vars.shadow.lg : 'none',
         },
       }}>
-        <h6>Users from secure api end point</h6>
-                {users &&
-                    <ul>
-                        {users.map(user =>
-                            <li key={user.id}>{user.firstName} {user.lastName}</li>
-                        )}
-                    </ul>
-                }
-                {!users && <div className="spinner-border spinner-border-sm"></div>}
 
         <Chat onShowSettings={() => setSettingsShown(true)} />
 
