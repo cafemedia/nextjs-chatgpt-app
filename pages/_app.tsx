@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { createEmotionCache, theme } from '@/lib/theme';
 import '../styles/GithubMarkdown.css';
-import { RouteGuard } from '@/components/RouteGuard';
+import { SessionProvider } from 'next-auth/react';
 
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -21,12 +21,12 @@ export interface MyAppProps extends AppProps {
 export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
   return <>
+  <SessionProvider session={pageProps.session}>
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       {/* Rect-query provider */}
-      <RouteGuard>
       <QueryClientProvider client={queryClient}>
         <CssVarsProvider defaultMode='light' theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -36,7 +36,7 @@ export default function MyApp({ Component, emotionCache = clientSideEmotionCache
           
         </CssVarsProvider>
       </QueryClientProvider>
-      </RouteGuard>
       </CacheProvider>
+    </SessionProvider>
   </>;
 }

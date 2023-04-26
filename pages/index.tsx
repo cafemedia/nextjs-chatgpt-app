@@ -8,6 +8,7 @@ import { isValidOpenAIApiKey, SettingsModal } from '@/components/dialogs/Setting
 import { useSettingsStore } from '@/lib/stores/store-settings';
 import { useState, useEffect } from 'react';
 import { userService } from 'services';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 export default function Home() {
   // state
@@ -18,18 +19,15 @@ export default function Home() {
   const apiKey = useSettingsStore(state => state.apiKey);
   const centerMode = useSettingsStore(state => state.centerMode);
 
-  const [users, setUsers] = useState(null);
-
-    useEffect(() => {
-        userService.getAll().then(x => setUsers(x));
-    }, []);
-
   // show the Settings Dialog at startup if the API key is required but not set
   useEffect(() => {
     if (!process.env.HAS_SERVER_KEY_OPENAI && !isValidOpenAIApiKey(apiKey))
       setSettingsShown(true);
   }, [apiKey]);
 
+  const { data, status } = useSession();
+  if (status === 'loading') return <h1> loading... please wait</h1>;
+  if (status === 'authenticated') {
 
   return (
     /**
@@ -53,5 +51,11 @@ export default function Home() {
       </Container>
 
     </NoSSR>
+  );
+}
+  return (
+    <div>
+      <button onClick={() => signIn('google')}>sign in with gooogle</button>
+    </div>
   );
 }
