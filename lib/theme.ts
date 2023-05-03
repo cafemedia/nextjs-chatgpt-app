@@ -67,7 +67,7 @@ export const theme = extendTheme({
         background: {
           surface: '#e1dad4',
           level1: '#f0edeb',
-          level2: '#ecb5d2',
+          level2: '#e1dad4',
           // popup: 'var(--joy-palette-common-black, #09090D)',
         },
       },
