@@ -48,7 +48,7 @@ export const theme = extendTheme({
         },
         neutral: {
           solidBg: '#6b65ff',
-          solidHoverBg: '#ff7858', // hover Neutral buttons (App Bar)
+          solidHoverBg: '#e1dad4', // hover Neutral buttons (App Bar)
           // 50: '#F7F7F8',
           // 100: '#EBEBEF',
           // 200: '#D8D8DF',
