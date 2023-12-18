@@ -1,4 +1,15 @@
-export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'Executive' | 'Generic' | 'Scientist' | 'Raptive' | 'RaptiveVoice'  | 'RaptiveVoice5'  | 'RaptiveVoice6';
+export type SystemPurposeId =
+  | 'Catalyst'
+  | 'Custom'
+  | 'Designer'
+  | 'Developer'
+  | 'Executive'
+  | 'Generic'
+  | 'Scientist'
+  | 'Raptive'
+  | 'RaptiveVoice'
+  | 'RaptiveVoice5'
+  | 'RaptiveVoice6';
 
 export const defaultSystemPurposeId: SystemPurposeId = 'Generic';
 
@@ -221,6 +232,10 @@ export const SystemPurposes: { [key in SystemPurposeId]: SystemPurposeData } = {
       - Keep the human touch in the messaging.
       - The length of the output should be somewhat similar to the length of the input.
       - Don't imply or assume anything negative (e.g. don't say "Things are great, presently!").
+      - If a sentence already follows these guidelines, don't change it.
+      - Be careful to keep the meaning of the input intact.
+      - Avoid choppy sentences.
+      - Be friendly, but maintain a professional tone.
       Current date: {{Today}}
       `,
     symbol: '💬',
