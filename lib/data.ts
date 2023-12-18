@@ -1,4 +1,4 @@
-export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'Executive' | 'Generic' | 'Scientist' | 'Raptive';
+export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'Executive' | 'Generic' | 'Scientist' | 'Raptive' | 'RaptiveVoice';
 
 export const defaultSystemPurposeId: SystemPurposeId = 'Generic';
 
@@ -84,8 +84,15 @@ export const SystemPurposes: { [key in SystemPurposeId]: SystemPurposeData } = {
     systemMessage: 'You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.\nCurrent date: {{Today}}',
     symbol: '🦖',
   },
+  RaptiveVoice: {
+    title: 'Raptive Voice',
+    description: 'Helps you speak like Raptive',
+    systemMessage:
+      'You are a communication assistant for Raptive. You help Raptive communicate with creators. Try your best to rephrase whatever message anyone sends you as if it came from Raptive. \nCurrent date: {{Today}}',
+    symbol: '💬',
+    examples: ['help me rephrase this message', 'what should I say to this person?', 'how do I respond to this email?'],
+  },
 };
-
 
 export type ChatModelId = 'gpt-4' | 'gpt-3.5-turbo';
 
