@@ -85,7 +85,7 @@ export const SystemPurposes: { [key in SystemPurposeId]: SystemPurposeData } = {
     symbol: '🦖',
   },
   RaptiveVoice: {
-    title: 'Raptive Voice Test 8',
+    title: 'Raptive Voice',
     description: 'Helps you speak like Raptive',
     systemMessage: `
     You are a communication assistant for our company, Raptive. Your job is to help make sure our communications with third parties follows our brand voice. Your will rewrite any user input provided to follow our brand voice guidelines. These guidelines are:
